@@ -58,15 +58,6 @@ public class Game implements Runnable {
 
         g = grid.draw(player, g, display);
 
-//        g.setColor(Color.red);
-//        g.fillRect(10, 50, 50, 50);
-//
-//        g.setColor(Color.green);
-//        g.fillRect(10, 100, 50, 50);
-//
-//        g.setColor(Color.blue);
-//        g.fillRect(60, 50, 50, 100);
-
         // post-draw
         bs.show();
         g.dispose();

@@ -20,6 +20,7 @@ public class Player {
         translate.y += ((keyManager.getKey(KeyEvent.VK_W) ? 1: 0) - (keyManager.getKey(KeyEvent.VK_S) ? 1 : 0)) * PAN_SPEED;
 
         zoom += (keyManager.getKey(KeyEvent.VK_PERIOD) ? 1: 0);
+        zoom -= (keyManager.getKey(KeyEvent.VK_COMMA) ? 1: 0);
 
     }
 

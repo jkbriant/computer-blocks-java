@@ -2,6 +2,7 @@ package dev.pacito.computerblocks;
 
 import dev.pacito.computerblocks.display.Display;
 import dev.pacito.computerblocks.input.KeyManager;
+import dev.pacito.computerblocks.blocks.*;
 
 import java.awt.*;
 import java.awt.image.BufferStrategy;
@@ -33,12 +34,17 @@ public class Game implements Runnable {
         display = new Display(title, width, height);
         display.getFrame().addKeyListener(keyManager);
 
-        grid = new Grid(20, 20, 1);
+        grid = new Grid(200, 200, 1);
+        grid.blocks.add(new CableBlock(new BlockPosition(1, 1, 1)));
+        grid.blocks.add(new CableBlock(new BlockPosition(2, 1, 1)));
+        grid.blocks.add(new SourceBlock(new BlockPosition(3, 1, 1)));
+
         player = new Player();
     }
 
     private void tick() {
         player.tick(keyManager);
+        keyManager.tick();
     }
 
     private void render() {
@@ -57,6 +63,9 @@ public class Game implements Runnable {
         g.fillRect(0, 0, width, height);
 
         g = grid.draw(player, g, display);
+        for (Block i : grid.blocks) {
+          g = i.draw(player, g);
+        }
 
         // post-draw
         bs.show();
@@ -88,7 +97,6 @@ public class Game implements Runnable {
             }
 
             if(timer >= 1000000000){
-                System.out.println("Ticks and Frames: " + ticks);
                 ticks = 0;
                 timer = 0;
             }

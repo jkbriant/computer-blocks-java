@@ -1,9 +1,9 @@
 package dev.pacito.computerblocks;
 
 public class RealPosition {
-    int x, y;
+    public float x, y;
 
-    public RealPosition(int x, int y) {
+    public RealPosition(float x, float y) {
         this.x = x;
         this.y = y;
     }

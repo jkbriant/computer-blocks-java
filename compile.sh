@@ -1,6 +1,6 @@
-javac.exe -d "out/" -cp "src/" $(find . -type f -name "*.java")
+javac.exe -d "bin/" $(find . -type f -name "*.java")
 
-cd out/
+cd bin/
 java dev/pacito/computerblocks/Launcher
 
 printf "\n\n"
